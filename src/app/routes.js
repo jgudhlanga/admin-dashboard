@@ -1,18 +1,14 @@
-import {Component} from '@angular/core';
-import {RouterModule} from '@angular/router';
-import {MainComponent} from './main';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {HomeComponent} from './home/home';
 
-@Component({
-  selector: 'app-root',
-  template: '<router-outlet></router-outlet>'
-})
-export class RootComponent {}
-
-export const routes = [
-  {
-    path: '',
-    component: MainComponent
-  }
+const routes: Routes = [
+ {path: '', redirectTo: '/home', pathMatch: 'full'},
+ {path: 'home', component: HomeComponent}
 ];
 
-export const routing = RouterModule.forRoot(routes);
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class RoutingModule {}

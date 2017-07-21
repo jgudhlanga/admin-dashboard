@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 
 @Component({
-  selector: 'main-app',
+  selector: 'app-root',
   template: require('./main.html')
 })
 export class MainComponent {

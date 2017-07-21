@@ -1,0 +1,24 @@
+.jd-nav{
+    @include jdGradient();
+    border-radius: 0; border: 0;
+    .jd-brand{
+        padding-right: 30px;
+        a{
+            font-size: 25px; color: $brand-c; font-weight: bold;
+            .right{
+                font-size: 25px; color: $brand-d; font-weight: bold;
+            }
+            &:hover{
+                color: lighten($brand-a, 100%);
+            }
+        }
+    }
+    .header-links{
+        li > a {
+            color: lighten($brand-a, 100%);
+            &:hover{
+                color: $brand-c;
+            }
+        }
+    }
+}

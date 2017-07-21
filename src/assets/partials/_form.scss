@@ -1,0 +1,21 @@
+.main-content{
+    min-height: 500px;
+    border-left: 1px solid #0d47a1;
+    overflow: hidden;
+}
+.form-signin{
+    margin: 0 auto;
+    width: 30%;
+}
+.form-signin-heading{
+    color: #0d47a1;
+    font-weight: bold;
+}
+.form-signin > input{
+    margin-top: 5px;
+}
+@media  screen  and (max-width: 650px) {
+    .form-signin{
+        width: 80%;
+    }
+}

@@ -1,3 +1,19 @@
-<div class="col-md-12 jd-main">
-    You are Home
+<div class="row col-md-12 jd-main">
+    <div class="row ">
+        <div class="col-md-2 left-panel">
+            <ul>
+                <li *ngFor="let emp of employees">
+                    <a class="jd-cursor">
+                        <i class="fa fa-user-circle-o fa-2x"></i>
+                         {{emp.user.first_name}} {{emp.user.last_name}}
+                     </a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-10 right-panel">
+            <div class="text-right">
+                <a routerLink="dashboard" ><i class="fa fa-bar-chart fa-2x"></i></a>
+            </div>
+        </div>
+    </div>
 </div>

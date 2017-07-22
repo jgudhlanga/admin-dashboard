@@ -9,7 +9,7 @@
             <span class="icon-bar"></span>
           </button>
           <div class="jd-brand">
-               <a class="navbar-brand" routerLink="/">ADMIN <span class="right">- DASHBOARD</span></a>
+               <a class="navbar-brand" routerLink="/">EMPLOYEES <span class="right">- DASHBOARD</span></a>
           </div>
         </div>
 
@@ -17,13 +17,13 @@
           <ul class="nav navbar-nav navbar-right header-links">
             <li *ngIf="authService.isLoggedIn()">
                 <a routerLink="/" *ngIf="authService.currentUser">
-                    <i class="fa fa-user">&nbsp;</i>
+                    <i class="glyphicon glyphicon-user">&nbsp;</i>
                     Hi, {{ authService.currentUser.first_name }} {{ authService.currentUser.last_name }}
                 </a>
             </li>
             <li *ngIf="authService.isLoggedIn()">
                 <a (click)="logout()" class="jd-cursor">
-                    <i class="fa fa-sign-out">&nbsp;</i>Logout
+                    <i class="glyphicon glyphicon-off">&nbsp;</i>Logout
                 </a>
             </li>
           </ul>

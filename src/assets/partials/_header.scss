@@ -1,6 +1,7 @@
 .jd-nav{
     @include jdGradient();
     border-radius: 0; border: 0;
+    margin: 0 !important;
     .jd-brand{
         padding-right: 30px;
         a{

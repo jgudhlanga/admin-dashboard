@@ -11,6 +11,8 @@ import {HomeComponent} from './home/home';
 import {AuthService} from './auth/auth.service';
 import {AuthComponent} from './auth/auth';
 import {AuthGuard} from './auth/auth.guard';
+import {EmployeeService} from './employee/employee.service';
+import {EmployeeComponent} from './employee/employee';
 
 @NgModule({
   imports: [
@@ -25,9 +27,10 @@ import {AuthGuard} from './auth/auth.guard';
     MainComponent,
     FooterComponent,
     HomeComponent,
-    AuthComponent
+    AuthComponent,
+    EmployeeComponent
   ],
-  providers: [AuthService, AuthGuard],
+  providers: [AuthService, AuthGuard, EmployeeService],
   bootstrap: [MainComponent]
 })
 export class AppModule {}

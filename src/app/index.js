@@ -10,6 +10,7 @@ import {FooterComponent} from './footer/footer';
 import {HomeComponent} from './home/home';
 import {AuthService} from './auth/auth.service';
 import {AuthComponent} from './auth/auth';
+import {AuthGuard} from './auth/auth.guard';
 
 @NgModule({
   imports: [
@@ -26,7 +27,7 @@ import {AuthComponent} from './auth/auth';
     HomeComponent,
     AuthComponent
   ],
-  providers: [AuthService],
+  providers: [AuthService, AuthGuard],
   bootstrap: [MainComponent]
 })
 export class AppModule {}

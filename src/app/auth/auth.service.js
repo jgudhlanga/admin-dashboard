@@ -18,6 +18,7 @@ export class AuthService {
 
   login(data: any) {
     console.log(data);
+    return 'You are logged in';
   }
 
   logout() {

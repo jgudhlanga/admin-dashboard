@@ -10,9 +10,9 @@ import {AuthService} from './auth.service';
 
 export class AuthComponent implements OnInit {
 
-  constructor() {
-    this.router = Router;
-    this.authService = AuthService;
+  constructor(router: Router, authService: AuthService) {
+    this.router = router;
+    this.authService = authService;
   }
 
   error: any;
@@ -31,5 +31,6 @@ export class AuthComponent implements OnInit {
   login(data: any) {
     this.loading = true;
     this.authService.login(data);
+    this.router.navigate(['/home']);
   }
 }

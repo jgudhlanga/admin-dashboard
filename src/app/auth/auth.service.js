@@ -7,18 +7,22 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class AuthService {
 
-  API_URL = 'http://chms-server/api/v1/';
-
-  constructor() {
-    this.http = Http;
-    this.observable = Observable;
-    this.headers = Headers;
-    this.response = Response;
+  constructor(http: Http, headers: Headers, response: Response, observable: Observable) {
+    this.http = http;
+    this.observable = observable;
+    this.headers = headers;
+    this.response = response;
   }
 
   login(data: any) {
-    console.log(data);
-    return 'You are logged in';
+    return this.http.post('http://staging.tangent.tngnt.co/api-token-auth/', data)
+      .map((response: Response) => function () {
+        const userToken = response.json();
+        if (userToken && userToken.token) {
+          localStorage.setItem('accessToken', userToken.token);
+        }
+        return userToken;
+      });
   }
 
   logout() {

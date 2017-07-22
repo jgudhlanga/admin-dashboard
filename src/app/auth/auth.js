@@ -34,9 +34,6 @@ export class AuthComponent implements OnInit {
     this.authService.login(data)
     .subscribe(result => {
       this.userToken = result;
-      if (this.userToken.token) {
-        localStorage.setItem('accessToken', this.userToken.token);
-      }
     },
     error => {
       this.error = error;

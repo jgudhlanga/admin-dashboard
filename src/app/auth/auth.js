@@ -16,12 +16,13 @@ export class AuthComponent implements OnInit {
   }
 
   error: any;
+  userToken: any;
   formLogin: any;
   loading: boolean;
 
   ngOnInit() {
     this.formLogin = new FormGroup({
-      email: new FormControl('', Validators.compose([
+      username: new FormControl('', Validators.compose([
         Validators.required, Validators.minLength(5)
       ])),
       password: new FormControl('', Validators.required)
@@ -30,7 +31,19 @@ export class AuthComponent implements OnInit {
 
   login(data: any) {
     this.loading = true;
-    this.authService.login(data);
-    this.router.navigate(['/home']);
+    this.authService.login(data)
+    .subscribe(result => {
+      this.userToken = result;
+      if (this.userToken.token) {
+        localStorage.setItem('accessToken', this.userToken.token);
+      }
+    },
+    error => {
+      this.error = error;
+    },
+    () => {
+      this.loading = false;
+      this.router.navigate(['/home']);
+    });
   }
 }

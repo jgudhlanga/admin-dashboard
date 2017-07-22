@@ -1,7 +1,6 @@
 <header>
     <nav class="navbar navbar-default jd-nav">
       <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
             <span class="sr-only">Toggle navigation</span>
@@ -14,10 +13,16 @@
           </div>
         </div>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right header-links">
-            <li><a href="#">Link</a></li>
+            <li *ngIf="authService.isLoggedIn()">
+                <a routerLink="home"><i class="fa fa-user">&nbsp;</i>The User Name</a>
+            </li>
+            <li *ngIf="authService.isLoggedIn()">
+                <a (click)="logout()" class="jd-cursor">
+                    <i class="fa fa-sign-out">&nbsp;</i>Logout
+                </a>
+            </li>
           </ul>
         </div>
       </div>

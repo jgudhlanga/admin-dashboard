@@ -1,28 +1,18 @@
 import {Injectable} from '@angular/core';
-import {Http, Headers, Response} from '@angular/http';
-import {Observable} from 'rxjs/Observable';
+import {Http} from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class AuthService {
 
-  constructor(http: Http, headers: Headers, response: Response, observable: Observable) {
+  constructor(http: Http) {
     this.http = http;
-    this.observable = observable;
-    this.headers = headers;
-    this.response = response;
   }
 
   login(data: any) {
     return this.http.post('http://staging.tangent.tngnt.co/api-token-auth/', data)
-      .map((response: Response) => function () {
-        const userToken = response.json();
-        if (userToken && userToken.token) {
-          localStorage.setItem('accessToken', userToken.token);
-        }
-        return userToken;
-      });
+      .map((response => response.json()));
   }
 
   logout() {
@@ -31,4 +21,9 @@ export class AuthService {
 
   currentUser = (localStorage.getItem('currentUser')) ? JSON.parse(localStorage.getItem('currentUser')) : null;
 
+  isLoggedIn() {
+    if (localStorage.getItem('accessToken')) {
+      return true;
+    }
+  }
  }

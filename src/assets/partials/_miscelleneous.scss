@@ -3,7 +3,7 @@
 }
 
 .jd-page-header{
-  color: #808080; font-weight: bold; font-size: 20px; margin-bottom: 4px;
+  color: lighten($brand-a, 60%); font-weight: bold; font-size: 20px; margin-bottom: 4px;
   text-transform: capitalize;
   overflow: hidden;
   padding: 5px 0;
@@ -36,3 +36,17 @@
      width: 86%; display:inline; float: left;
       padding-top: 20px;
  }
+.jd-border-bottom{
+    border-bottom: 1px solid #fcfcfc;
+}
+.jd-margin-top{
+    margin-top: 10px;
+}
+.jd-well-bg{
+    @include jdRadius();
+   background-color: lighten($brand-c, 30%); color: lighten($brand-a, 40%);
+   border: 0 solid lighten($brand-a, 40%);
+  .header{
+      color: darken($brand-c, 30%); font-size: 16px; font-weight: bold;
+  }
+}

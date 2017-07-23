@@ -1,10 +1,7 @@
 <div class="row col-md-12 jd-main">
     <div class="row ">
         <div class="col-md-2 left-panel">
-            <div class="statistics">
-                <a routerLink="dashboard" ><i class="fa fa-bar-chart fa-2x"></i></a>
-            </div>
-            <ul>
+            <ul *ngIf="!loadingData">
                 <li *ngFor="let emp of employees">
                     <a class="jd-cursor" (click)="onSelectEmployee(emp)">
                         <i class="fa fa-user-circle-o fa-2x"></i>
@@ -12,6 +9,7 @@
                      </a>
                 </li>
             </ul>
+            <div *ngIf="loadingData" class="text-danger"><i class="fa fa-spinner fa-spin"></i>loading data...</div>
         </div>
         <div class="col-md-10 right-panel">
             <app-employee [employee]="selectedEmployee"></app-employee>

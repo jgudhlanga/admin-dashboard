@@ -20,6 +20,7 @@ export class HomeComponent {
   employees: any;
   error: any;
   selectedEmployee: any;
+  loadiingData: boolean;
 
   getUser() {
     if (this.authService.isLoggedIn) {
@@ -36,6 +37,7 @@ export class HomeComponent {
 
   getEmployees() {
     if (this.authService.isLoggedIn) {
+      this.loadingData = true;
       this.employeeService.getEmployees()
         .subscribe(
           employees => {
@@ -43,13 +45,15 @@ export class HomeComponent {
           },
           error => {
             this.error = error;
+          },
+          () => {
+            this.loadingData = false;
           });
     }
   }
 
   onSelectEmployee(emp) {
     this.selectedEmployee = emp;
-    console.log(this.selectedEmployee);
   }
 
   ngOnInit() {

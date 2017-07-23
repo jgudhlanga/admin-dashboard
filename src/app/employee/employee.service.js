@@ -78,4 +78,22 @@ export class EmployeeService {
     return positions;
   }
 
+  getBirthDaysThisMonth() {
+    const birthdays = {};
+    if (this.getEmployeesCount() > 0) {
+      const employees = JSON.parse(localStorage.allEmployees);
+      const date = new Date();
+      const currentMonth = date.getMonth();
+      for (let i = 0; i < employees.length; i++) {
+        if (employees[i].birth_date) {
+          const d = new Date(employees[i].birth_date);
+          if (d.getMonth() === currentMonth) {
+            Object.assign(birthdays, {[employees[i].user.first_name + ' ' + employees[i].user.last_name]: employees[i].birth_date});
+          }
+        }
+      }
+    }
+    return birthdays;
+  }
+
  }

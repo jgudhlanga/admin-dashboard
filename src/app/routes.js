@@ -9,7 +9,7 @@ const routes: Routes = [
  {path: '', redirectTo: '/home', pathMatch: 'full'},
  {path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
  {path: 'auth', component: AuthComponent},
- {path: '**', component: NotFoundComponent}
+ {path: '**', component: NotFoundComponent, canActivate: [AuthGuard]}
 
 ];
 

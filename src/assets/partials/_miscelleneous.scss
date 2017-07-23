@@ -47,7 +47,7 @@
     padding: 0 !important; margin: 0 !important;
 }
 .jd-bg-a{
-    background-color: $brand-a;
+    background-color: orange;
 }
 .jd-bg-c{
     background-color: $brand-c;
@@ -57,4 +57,7 @@
 }
 .jd-bg-r{
     background-color: red;
+}
+.jd-min-height{
+  min-height: 300px !important;
 }

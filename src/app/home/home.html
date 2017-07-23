@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="row jd-main">
         <div class="col-md-2">
-            <div class="panel panel-info">
+            <div class="panel panel-default jd-min-height">
               <div class="panel-heading text-bold">Employees
                   <span class="icon-right"><i class="fa fa-group"></i></span>
               </div>
@@ -9,7 +9,7 @@
                   <ul *ngIf="!loadingData" class="employees-list">
                       <li *ngFor="let emp of employees">
                           <a class="jd-cursor" (click)="onSelectEmployee(emp)">
-                              <i class="fa fa-user-circle-o fa-2x"></i>
+                              <i class="fa fa-user-circle-o"></i>
                                {{emp.user.first_name}} {{emp.user.last_name}}
                            </a>
                       </li>

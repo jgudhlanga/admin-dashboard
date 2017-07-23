@@ -1,4 +1,4 @@
-<div class="panel panel-primary">
+<div class="panel panel-default">
   <div class="panel-heading text-bold">Dashboard
       <span class="icon-right"><i class="fa fa-bar-chart"></i></span>
   </div>
@@ -29,17 +29,20 @@
         <a>{{pos}} <span class="badge jd-bg-c icon-right">{{employeeService.getPositionsCount()[pos]}}</span></a>
     </li>
   </ul>
+  <div class="alert arlert-warning" *ngIf="!employeeService.getPositionsCount()">
+      No positions found
+  </div>
 </div>
 <div class="panel panel-default">
   <div class="panel-heading text-bold">Birthdays this Month
       <span class="icon-right"><i class="fa fa-birthday-cake"></i></span>
   </div>
-  <ul class="list-group">
-    <li class="list-group-item">
-        <a>James Gudhlanga</a>
-    </li>
-    <li class="list-group-item">
-        <a>Andy Gudhlanga</a>
+  <ul class="list-group" *ngIf="employeeService.getBirthDaysThisMonth()">
+    <li class="list-group-item" *ngFor="let bd of employeeService.getBirthDaysThisMonth() | keys">
+        <a>{{bd}}</a>
     </li>
   </ul>
+  <div class="alert arlert-warning" *ngIf="!employeeService.getBirthDaysThisMonth()">
+      No birthdays found
+  </div>
 </div>

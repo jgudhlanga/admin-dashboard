@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Pipe, PipeTransform} from '@angular/core';
 import {Router} from '@angular/router';
 import {AuthService} from '../auth/auth.service';
 import {EmployeeService} from '../employee/employee.service';
@@ -14,5 +14,14 @@ export class DashboardComponent implements OnInit {
     this.employeeService = employeeService;
     employeeService.getPositionsCount();
   }
+}
 
+@Pipe({name: 'keys'})
+export class KeysPipe implements PipeTransform {
+  transform(value) : any {
+    if (!value) {
+      return null;
+    }
+    return Object.keys(value);
+  }
 }

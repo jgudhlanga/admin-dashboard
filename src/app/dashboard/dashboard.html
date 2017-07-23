@@ -4,18 +4,18 @@
   </div>
   <ul class="list-group">
     <li class="list-group-item">
-        <a class="btn btn-default btn-block">
-            <span class="badge">{{employeeService.getEmployeesCount()}}</span> Total Employees
+        <a>
+            Total Employees <span class="badge jd-bg-a icon-right">{{employeeService.getEmployeesCount()}}</span>
         </a>
     </li>
     <li class="list-group-item">
-        <a class="btn btn-success btn-block">
-            <span class="badge">{{employeeService.getFemalesCount()}}</span> Females
+        <a>
+            Females <span class="badge jd-bg-r icon-right">{{employeeService.getFemalesCount()}}</span>
         </a>
     </li>
     <li class="list-group-item">
-        <a class="btn btn-info btn-block">
-            <span class="badge">{{employeeService.getMalesCount()}}</span> Males
+        <a>
+            Males <span class="badge jd-bg-d icon-right">{{employeeService.getMalesCount()}}</span>
         </a>
     </li>
   </ul>
@@ -24,9 +24,9 @@
   <div class="panel-heading text-bold">Positions
       <span class="icon-right"><i class="fa fa-tasks"></i></span>
   </div>
-  <ul class="list-group"  *ngIf="employeeService.getPositions()">
-    <li class="list-group-item" *ngFor="let pos of employeeService.getPositions()">
-        <a>{{pos}}</a>
+  <ul class="list-group"  *ngIf="employeeService.getPositionsCount()">
+    <li class="list-group-item" *ngFor="let pos of employeeService.getPositionsCount() | keys">
+        <a>{{pos}} <span class="badge jd-bg-c icon-right">{{employeeService.getPositionsCount()[pos]}}</span></a>
     </li>
   </ul>
 </div>

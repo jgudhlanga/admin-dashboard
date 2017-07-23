@@ -61,7 +61,7 @@ export class EmployeeService {
     return maleCount;
   }
 
-  getPositions() {
+  getPositionsCount() {
     const positions = {};
     if (this.getEmployeesCount() > 0) {
       const employees = JSON.parse(localStorage.allEmployees);

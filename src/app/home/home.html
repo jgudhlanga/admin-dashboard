@@ -2,7 +2,9 @@
     <div class="row jd-main">
         <div class="col-md-2">
             <div class="panel panel-info">
-              <div class="panel-heading">Employees</div>
+              <div class="panel-heading text-bold">Employees
+                  <span class="icon-right"><i class="fa fa-group"></i></span>
+              </div>
               <div class="panel-body">
                   <ul *ngIf="!loadingData" class="employees-list">
                       <li *ngFor="let emp of employees">
@@ -12,6 +14,9 @@
                            </a>
                       </li>
                   </ul>
+                  <div *ngIf="loadingData" class="tex-info text-center">
+                      <i class="fa fa-spinner fa-spin"></i>loading...
+                  </div>
               </div>
             </div>
         </div>

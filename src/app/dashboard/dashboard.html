@@ -1,27 +1,39 @@
-<div class="panel panel-default">
-  <!-- Default panel contents -->
-  <div class="panel-heading">Dashboard</div>
+<div class="panel panel-primary">
+  <div class="panel-heading text-bold">Dashboard
+      <span class="icon-right"><i class="fa fa-bar-chart"></i></span>
+  </div>
   <ul class="list-group">
     <li class="list-group-item">
-        <a class="btn btn-success btn-block">
-            <span class="badge">19</span>Total Employees
+        <a class="btn btn-default btn-block">
+            <span class="badge">{{employeeService.getEmployeesCount()}}</span> Total Employees
         </a>
     </li>
     <li class="list-group-item">
-        <a class="btn btn-warning btn-block">
-            <span class="badge">19</span>Total Employees
+        <a class="btn btn-success btn-block">
+            <span class="badge">{{employeeService.getFemalesCount()}}</span> Females
         </a>
     </li>
     <li class="list-group-item">
         <a class="btn btn-info btn-block">
-            <span class="badge">19</span>Total Employees
+            <span class="badge">{{employeeService.getMalesCount()}}</span> Males
         </a>
     </li>
   </ul>
 </div>
+<div class="panel panel-success">
+  <div class="panel-heading text-bold">Positions
+      <span class="icon-right"><i class="fa fa-tasks"></i></span>
+  </div>
+  <ul class="list-group"  *ngIf="employeeService.getPositions()">
+    <li class="list-group-item" *ngFor="let pos of employeeService.getPositions()">
+        <a>{{pos}}</a>
+    </li>
+  </ul>
+</div>
 <div class="panel panel-default">
-  <!-- Default panel contents -->
-  <div class="panel-heading">Birthdays this Month</div>
+  <div class="panel-heading text-bold">Birthdays this Month
+      <span class="icon-right"><i class="fa fa-birthday-cake"></i></span>
+  </div>
   <ul class="list-group">
     <li class="list-group-item">
         <a>James Gudhlanga</a>

@@ -19,6 +19,7 @@ export class HomeComponent {
   user: any;
   employees: any;
   error: any;
+  selectedEmployee: any;
 
   getUser() {
     if (this.authService.isLoggedIn) {
@@ -44,6 +45,11 @@ export class HomeComponent {
             this.error = error;
           });
     }
+  }
+
+  onSelectEmployee(emp) {
+    this.selectedEmployee = emp;
+    console.log(this.selectedEmployee);
   }
 
   ngOnInit() {

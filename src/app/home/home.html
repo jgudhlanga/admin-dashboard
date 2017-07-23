@@ -1,9 +1,12 @@
 <div class="row col-md-12 jd-main">
     <div class="row ">
         <div class="col-md-2 left-panel">
+            <div class="statistics">
+                <a routerLink="dashboard" ><i class="fa fa-bar-chart fa-2x"></i></a>
+            </div>
             <ul>
                 <li *ngFor="let emp of employees">
-                    <a class="jd-cursor">
+                    <a class="jd-cursor" (click)="onSelectEmployee(emp)">
                         <i class="fa fa-user-circle-o fa-2x"></i>
                          {{emp.user.first_name}} {{emp.user.last_name}}
                      </a>
@@ -11,9 +14,7 @@
             </ul>
         </div>
         <div class="col-md-10 right-panel">
-            <div class="text-right">
-                <a routerLink="dashboard" ><i class="fa fa-bar-chart fa-2x"></i></a>
-            </div>
+            <app-employee [employee]="selectedEmployee"></app-employee>
         </div>
     </div>
 </div>

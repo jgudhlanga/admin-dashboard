@@ -13,6 +13,7 @@ import {AuthComponent} from './auth/auth';
 import {AuthGuard} from './auth/auth.guard';
 import {EmployeeService} from './employee/employee.service';
 import {EmployeeComponent} from './employee/employee';
+import {DashboardComponent} from './dashboard/dashboard';
 import {NotFoundComponent} from './not-found/not-found';
 
 @NgModule({
@@ -30,6 +31,7 @@ import {NotFoundComponent} from './not-found/not-found';
     HomeComponent,
     AuthComponent,
     EmployeeComponent,
+    DashboardComponent,
     NotFoundComponent
   ],
   providers: [AuthService, AuthGuard, EmployeeService],

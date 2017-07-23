@@ -9,33 +9,20 @@
   padding: 5px 0;
 
   }
- .left-panel{
-     width: 14%; min-height: 480px; display:inline; float: left;
-     border-right: 1px solid $brand-b;
-     padding-top: 20px;
-     .statistics{
-         margin: 0 10px;
-         border-bottom: 1px solid lighten($brand-a, 80%);
-     }
-     ul{
-         list-style: none;
-         margin-left: 2px; padding: 5px;
-         li{
-             margin-top: 5px;
-             a{
-                 text-decoration: none;
-                 display: block;
-                 &:hover{
-                     border-right: 3px solid $brand-d;
-                 }
-             }
-         }
-     }
- }
- .right-panel{
-     width: 86%; display:inline; float: left;
-      padding-top: 20px;
- }
+  .employees-list{
+      list-style: none;
+      margin: 0; padding: 0;
+      li{
+          margin-top: 5px;
+          a{
+              text-decoration: none;
+              display: block;
+              &:hover{
+                  border-right: 3px solid $brand-d;
+              }
+          }
+      }
+  }
 .jd-border-bottom{
     border-bottom: 1px solid #fcfcfc;
 }
@@ -44,9 +31,12 @@
 }
 .jd-well-bg{
     @include jdRadius();
-   background-color: lighten($brand-c, 30%); color: lighten($brand-a, 40%);
-   border: 0 solid lighten($brand-a, 40%);
+   background-color: lighten($brand-c, 100%); color: lighten($brand-a, 40%);
+   border: 1px solid lighten($brand-a, 80%);
   .header{
-      color: darken($brand-c, 30%); font-size: 16px; font-weight: bold;
+      color: lighten($brand-a, 60%); font-size: 16px; font-weight: bold;
   }
+}
+.jd-padding-margin-0{
+    padding: 0 !important; margin: 0 !important;
 }

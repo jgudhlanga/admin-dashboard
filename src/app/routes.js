@@ -3,11 +3,13 @@ import {RouterModule, Routes} from '@angular/router';
 import {HomeComponent} from './home/home';
 import {AuthComponent} from './auth/auth';
 import {AuthGuard} from './auth/auth.guard';
+import {NotFoundComponent} from './not-found/not-found';
 
 const routes: Routes = [
  {path: '', redirectTo: '/home', pathMatch: 'full'},
  {path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
- {path: 'auth', component: AuthComponent}
+ {path: 'auth', component: AuthComponent},
+ {path: '**', component: NotFoundComponent}
 
 ];
 

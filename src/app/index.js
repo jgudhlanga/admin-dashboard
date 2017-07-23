@@ -13,6 +13,7 @@ import {AuthComponent} from './auth/auth';
 import {AuthGuard} from './auth/auth.guard';
 import {EmployeeService} from './employee/employee.service';
 import {EmployeeComponent} from './employee/employee';
+import {NotFoundComponent} from './not-found/not-found';
 
 @NgModule({
   imports: [
@@ -28,7 +29,8 @@ import {EmployeeComponent} from './employee/employee';
     FooterComponent,
     HomeComponent,
     AuthComponent,
-    EmployeeComponent
+    EmployeeComponent,
+    NotFoundComponent
   ],
   providers: [AuthService, AuthGuard, EmployeeService],
   bootstrap: [MainComponent]

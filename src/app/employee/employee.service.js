@@ -27,6 +27,13 @@ export class EmployeeService {
       });
   }
 
+  getEmployee() {
+    const myHeaders = new Headers();
+    this.createAuthorizationHeader(myHeaders);
+    return this.http.get('http://staging.tangent.tngnt.co/api/employee/me/', {headers: myHeaders})
+      .map((response: Response) => response.json());
+  }
+
   getEmployeesCount() {
     let totalCount = 0;
     if (localStorage.allEmployees) {

@@ -5,6 +5,7 @@ import {RoutingModule} from './routes';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import {MainComponent} from './main';
+import {UserProfileComponent} from './user-profile/user-profile';
 import {HeaderComponent} from './header/header';
 import {FooterComponent} from './footer/footer';
 import {HomeComponent} from './home/home';
@@ -33,7 +34,8 @@ import {NotFoundComponent} from './not-found/not-found';
     EmployeeComponent,
     DashboardComponent,
     KeysPipe,
-    NotFoundComponent
+    NotFoundComponent,
+    UserProfileComponent
   ],
   providers: [AuthService, AuthGuard, EmployeeService],
   bootstrap: [MainComponent]

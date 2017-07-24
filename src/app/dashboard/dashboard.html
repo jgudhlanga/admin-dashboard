@@ -39,7 +39,7 @@
   </div>
   <ul class="list-group" *ngIf="employeeService.getBirthDaysThisMonth()">
     <li class="list-group-item" *ngFor="let bd of employeeService.getBirthDaysThisMonth() | keys">
-        <a>{{bd}}</a>
+        <a>{{bd}} - {{employeeService.getBirthDaysThisMonth()[bd]}}</a>
     </li>
   </ul>
   <div class="alert arlert-warning" *ngIf="!employeeService.getBirthDaysThisMonth()">

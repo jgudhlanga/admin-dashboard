@@ -20,7 +20,7 @@ export class HomeComponent {
   employees: any;
   error: any;
   selectedEmployee: any;
-  loadiingData: boolean;
+  loadingData: boolean;
 
   getUser() {
     if (this.authService.isLoggedIn) {

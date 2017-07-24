@@ -1,68 +1,36 @@
 <div *ngIf="employee">
-  <div class="col-md-12">
-      <div class="jd-page-header">
-         {{employee.user.id}}. {{employee.user.first_name}} {{employee.user.last_name}} Profile
+    <div class="row">
+    <div class="col-sm-4 col-md-4">
+         <img src="http://www.racebase.world/static-assets/images/avatars/avatar_0001_unknown.png"
+              alt="" class="img-rounded img-responsive" />
       </div>
-  </div>
-  <div class="well well-lg jd-well-bg">
-      <!--INFO START-->
-      <div class="row">
-          <div class="col-md-12 header">Info</div>
+      <div class="col-sm-8 col-md-8">
+          <blockquote>
+              <p>{{employee.user.id}}. {{employee.user.first_name}} {{employee.user.last_name}}</p>
+              <small>
+                  <cite title="Position">{{employee.position.name}} ( {{employee.position.level}} )</cite>
+              </small>
+          </blockquote>
+          <p>
+              <i class="glyphicon glyphicon-envelope"></i> {{employee.user.email}}<br/>
+               <i class="glyphicon glyphicon-phone"></i> {{employee.phone_number}}<br/>
+              <i class="fa fa-github"></i> {{employee.github_user}}<br />
+              <i class="fa fa-calendar"></i> {{employee.birth_date}} <span class="label label-warning">{{employee.age}} Years</span><br/>
+              <i class="fa fa-birthday-cake"></i> <span class="label label-info">{{employee.days_to_birthday}} days left</span>
+          </p>
+           <hr/>
+           <p>
+               <span>Is Staff </span><span class="text-success text-bold">{{getIsStaff(employee.user.is_staff)}}</span><br/>
+               <span>Is Active </span><span class="text-success text-bold">{{getIsActive(employee.user.is_active)}}</span><br/>
+               <span>Year Worked </span><span class="text-success text-bold">{{employee.years_worked}}</span><br/>
+               <span>Gender </span><span class="text-success text-bold">{{getGender(employee.gender)}}</span><br/>
+               <span>Race </span><span class="text-success text-bold">{{getRace(employee.race)}}</span><br/>
+           </p>
       </div>
-      <div class="row">
-          <div class="col-xs-6 col-md-3">Gender</div><div class="col-xs-6 col-md-9">{{ getGender(employee.gender)}}</div>
-      </div>
-      <div class="row">
-          <div class="col-xs-6 col-md-3">Race</div><div class="col-xs-6 col-md-9">{{getRace(employee.race)}}</div>
-      </div>
-      <div class="row">
-          <div class="col-xs-6 col-md-3">Birth Date</div><div class="col-xs-6 col-md-9">{{employee.birth_date}}</div>
-      </div>
-      <div class="row">
-          <div class="col-xs-6 col-md-3">Age</div><div class="col-xs-6 col-md-9">{{employee.age}}</div>
-      </div>
-      <div class="row">
-          <div class="col-xs-6 col-md-3">Days to Birth Day</div><div class="col-xs-6 col-md-9">{{employee.days_to_birthday}}</div>
-      </div>
-      <!--INFO END-->
-      <!--CONTACTS START-->
-      <div class="row">
-          <div class="col-md-12 jd-margin-top header">Contact Details</div>
-      </div>
-      <div class="row">
-          <div class="col-xs-6 col-md-3">Email</div><div class="col-xs-6 col-md-9">{{employee.user.email}}</div>
-      </div>
-      <div class="row">
-          <div class="col-xs-6 col-md-3">Phone Number</div><div class="col-xs-6 col-md-9">{{employee.phone_number}}</div>
-      </div>
-       <!--CONTACTS END-->
-        <!--WORK START-->
-      <div class="row">
-          <div class="col-md-12 jd-margin-top header">Work Details</div>
-      </div>
-      <div class="row">
-          <div class="col-xs-6 col-md-3">Position</div><div class="col-xs-6 col-md-9">{{employee.position.name}}</div>
-      </div>
-      <div class="row">
-          <div class="col-xs-6 col-md-3">Level</div><div class="col-xs-6 col-md-9">{{employee.position.level}}</div>
-      </div>
-      <div class="row">
-          <div class="col-xs-6 col-md-3">Is Staff</div><div class="col-xs-6 col-md-9">{{getIsStaff(employee.user.is_staff)}}</div>
-      </div>
-      <div class="row">
-          <div class="col-xs-6 col-md-3">Is Active</div><div class="col-xs-6 col-md-9">{{getIsActive(employee.user.is_active)}}</div>
-      </div>
-      <div class="row">
-          <div class="col-xs-6 col-md-3">Github User</div><div class="col-xs-6 col-md-9">{{employee.github_user}}</div>
-      </div>
-      <div class="row">
-          <div class="col-xs-6 col-md-3">Years Worked</div><div class="col-xs-6 col-md-9">{{employee.years_worked}}</div>
-      </div>
-       <!--WORK END-->
-  </div>
+</div>
 </div>
 <div *ngIf="!employee">
-    <div class="alert alert-info" role="alert">
+    <div class="text-danger" role="alert">
         Select an employee to view profile
     </div>
 </div>

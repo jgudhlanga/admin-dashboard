@@ -10,6 +10,7 @@ export class UserProfileComponent implements OnInit {
     this.employeeService = employeeService;
   }
   employee: any;
+  loadingData: boolean;
 
   getEmployee() {
     this.loadingData = true;
@@ -17,6 +18,7 @@ export class UserProfileComponent implements OnInit {
     .subscribe(
       employee => {
         this.employee = employee;
+        console.log(this.employee);
       },
       error => {
         this.error = error;

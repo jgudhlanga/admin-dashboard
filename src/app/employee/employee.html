@@ -8,12 +8,12 @@
           <blockquote>
               <p>{{employee.user.id}}. {{employee.user.first_name}} {{employee.user.last_name}}</p>
               <small>
-                  <cite title="Position">{{employee.position.name}} ( {{employee.position.level}} )</cite>
+                  <cite title="Position">{{employee.position.level}} {{employee.position.name}}</cite>
               </small>
           </blockquote>
           <p>
               <i class="glyphicon glyphicon-envelope"></i> {{employee.user.email}}<br/>
-               <i class="glyphicon glyphicon-phone"></i> {{employee.phone_number}}<br/>
+              <i class="glyphicon glyphicon-phone"></i> {{employee.phone_number}}<br/>
               <i class="fa fa-github"></i> {{employee.github_user}}<br />
               <i class="fa fa-calendar"></i> {{employee.birth_date}} <span class="label label-warning">{{employee.age}} Years</span><br/>
               <i class="fa fa-birthday-cake"></i> <span class="label label-info">{{employee.days_to_birthday}} days left</span>

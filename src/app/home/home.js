@@ -54,6 +54,7 @@ export class HomeComponent {
 
   onSelectEmployee(emp) {
     this.selectedEmployee = emp;
+    console.log(emp);
   }
 
   ngOnInit() {

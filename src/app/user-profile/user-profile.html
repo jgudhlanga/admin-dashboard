@@ -1,42 +1,89 @@
 <div class="row profile jd-main">
-		<div class="col-md-3">
-		<div class="profile-sidebar">
-			<!-- SIDEBAR USERPIC -->
-			<div class="profile-userpic">
-				<img src="http://www.racebase.world/static-assets/images/avatars/avatar_0001_unknown.png" class="img-responsive" alt="">
-			</div>
-			<!-- END SIDEBAR USERPIC -->
-			<!-- SIDEBAR USER TITLE -->
-			<div class="profile-usertitle">
-				<div class="profile-usertitle-name">
-					James
-				</div>
-				<div class="profile-usertitle-job">
-					{{jobTitle}}
-				</div>
-			</div>
-			<!-- END SIDEBAR USER TITLE -->
-			<!-- SIDEBAR MENU -->
-			<div class="profile-usermenu">
-				<ul class="nav">
-					<li class="active">
-						<a href="#">
-						  <i class="fa fa-user-circle-o"></i>My Profile
-                        </a>
-					</li>
-					<li>
-						<a routerLink="/home">
-						<i class="glyphicon glyphicon-home"></i>
-						Back Home </a>
-					</li>
-				</ul>
-			</div>
-			<!-- END MENU -->
-		</div>
-	</div>
-	<div class="col-md-9">
-        <div class="profile-content">
-		   Some user related content goes here...
+    <div *ngIf="!loadingData">
+        <div class="col-md-3">
+            <div class="profile-sidebar">
+    	        <div class="profile-userpic">
+    		       <img src="http://www.racebase.world/static-assets/images/avatars/avatar_0001_unknown.png" class="img-responsive" alt="">
+    	        </div>
+    	        <div class="profile-usertitle">
+    		       <div class="profile-usertitle-name">
+    		        	{{employee?.user?.first_name}} {{employee?.user?.last_name}}
+    		       </div>
+    		       <div class="profile-usertitle-job">
+    		          {{employee?.position?.level}} {{employee?.position?.name}}
+    		       </div>
+    	         </div>
+                 <div class="profile-usermenu">
+                    <ul class="nav">
+                        <li class="active">
+                            <a routerLink="/user-profile">
+                                <i class="fa fa-user-circle-o"></i>My Profile
+                            </a>
+                        </li>
+                        <li>
+                            <a routerLink="/home">
+                                <i class="glyphicon glyphicon-home"></i>Back Home
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
-	</div>
+        <div class="col-md-9">
+            <div class="profile-content">
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <i class="glyphicon glyphicon-envelope"></i> {{employee?.user?.email}}<br/>
+                            <i class="glyphicon glyphicon-phone"></i> {{employee?.phone_number}}<br/>
+                            <i class="fa fa-github"></i> {{employee?.github_user}}<br />
+                            <i class="fa fa-calendar"></i> {{employee?.birth_date}} <span class="label label-warning">{{employee?.age}} Years</span><br/>
+                            <i class="fa fa-birthday-cake"></i>
+                            <span class="label label-info">{{employee?.days_to_birthday}} days left</span><br/><br/>
+                            <i class="glyphicon glyphicon-map-marker"></i>
+                            <span class="label label-info">{{employee?.physical_address}}</span>
+                          </div>
+                        </div>
+                        <div class="jd-margin-top">
+                          <div class="well well-sm">
+                              <h4>Next of Kin</h4>
+                              <blockquote>
+                                  <p>{{employee?.employee_next_of_kin[0]?.name}}</p>
+                                  <small><cite>{{employee?.employee_next_of_kin[0]?.relationship}}</cite></small>
+                              </blockquote>
+                              <p>
+                                  <i class="glyphicon glyphicon-envelope"></i> {{employee?.employee_next_of_kin[0]?.email}}
+                                  <br />
+                                  <i class="glyphicon glyphicon-phone"></i> {{employee?.employee_next_of_kin[0]?.phone_number}}
+                                  <br />
+                                  <i class="glyphicon glyphicon-map-marker"></i>
+                                  <span class="label label-info">{{employee?.employee_next_of_kin[0]?.physical_address}}</span><br/>
+                              </p>
+                          </div>
+                        </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-success">
+                      <div class="panel-heading text-bold">Reviews
+                          <span class="icon-right"><i class="fa fa-money"></i></span>
+                      </div>
+                      <ul class="list-group"  *ngIf="employee?.employee_review">
+                        <li class="list-group-item" *ngFor="let rv of employee?.employee_review">
+                            <a>{{rv.date}} <span class="label label-success jd-bg-c icon-right">{{rv.salary}}</span></a>
+                        </li>
+                      </ul>
+                      <div class="panel-footer">
+                          <a>Next Review</a><span class="label label-success icon-right">{{employee?.next_review}}</span>
+                      </div>
+                      <div class="alert arlert-warning" *ngIf="!employeeService.getPositionsCount()">
+                          No reviews found
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="loadingData" class="text-center">
+         <i class="fa fa-spinner fa-spin"></i>loading...
+    </div>
 </div>

@@ -94,8 +94,10 @@ export class EmployeeService {
       for (let i = 0; i < employees.length; i++) {
         if (employees[i].birth_date) {
           const d = new Date(employees[i].birth_date);
+          const locale = 'en-ZA';
+          const month = d.toLocaleString(locale, {month: 'long'});
           if (d.getMonth() === currentMonth) {
-            Object.assign(birthdays, {[employees[i].user.first_name + ' ' + employees[i].user.last_name]: employees[i].birth_date});
+            Object.assign(birthdays, {[employees[i].user.first_name + ' ' + employees[i].user.last_name]: d.getDay() + ' ' + month});
           }
         }
       }

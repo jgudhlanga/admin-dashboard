@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {Router} from '@angular/router';
+import {Router, ActivatedRoute} from '@angular/router';
 import {AuthService} from '../auth/auth.service';
 import {EmployeeService} from '../employee/employee.service';
 
@@ -10,10 +10,11 @@ import {EmployeeService} from '../employee/employee.service';
 
 export class HomeComponent {
 
-  constructor(authService: AuthService, router: Router, employeeService: EmployeeService) {
+  constructor(authService: AuthService, router: Router, employeeService: EmployeeService, activatedRoute: ActivatedRoute) {
     this.router = router;
     this.authService = authService;
     this.employeeService = employeeService;
+    this.activatedRoute = activatedRoute;
   }
 
   user: any;
@@ -21,6 +22,7 @@ export class HomeComponent {
   error: any;
   selectedEmployee: any;
   loadingData: boolean;
+  urlParams: any;
 
   getUser() {
     if (this.authService.isLoggedIn) {
@@ -35,10 +37,10 @@ export class HomeComponent {
     }
   }
 
-  getEmployees() {
+  getEmployees(params) {
     if (this.authService.isLoggedIn) {
       this.loadingData = true;
-      this.employeeService.getEmployees()
+      this.employeeService.getEmployees(params)
         .subscribe(
           employees => {
             this.employees = employees;
@@ -54,11 +56,19 @@ export class HomeComponent {
 
   onSelectEmployee(emp) {
     this.selectedEmployee = emp;
-    console.log(emp);
+  }
+
+  onFilterSelect(filter) {
+    console.log(this.employees + ' ' + filter);
   }
 
   ngOnInit() {
     this.getUser();
+    this.activatedRoute
+      .queryParams
+      .subscribe(params => {
+        this.urlParams = params;
+      });
     this.getEmployees();
   }
 

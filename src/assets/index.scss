@@ -5,8 +5,15 @@
 @import "partials/form";
 @import "partials/miscelleneous";
 @import "partials/profile";
+
 body, html{
     margin: 0; padding: 0;
+    a {
+        text-decoration: none;
+        &:hover{
+            text-decoration: none;
+        }
+    }
 }
 .jd-main{
     min-height: 480px; padding-top: 20px;

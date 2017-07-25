@@ -8,7 +8,7 @@ You must have latest version of nodeJs on your PC.This is required for installin
 
 ## Getting Started
 
-Clone / Download the project to your computer<br/> 
+Clone / Download the project to your computer<br/>
 From CLI or Terminal cd to the project folder, and run<br/>
 npm install<br/>
 This will install the project dependencies

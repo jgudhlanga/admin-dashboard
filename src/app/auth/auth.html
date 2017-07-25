@@ -3,6 +3,7 @@
     [formGroup]="formLogin" (ngSubmit)="login(formLogin.value)"
     >
             <h3 class="form-signin-heading">Please sign in</h3>
+            <div class="alert alert-danger" *ngIf="error">Your credentials do not match, try again</div>
             <label for="inputUserName" class="sr-only">Username</label>
             <input type="text" id="inputEmail" class="form-control" placeholder="User Name"
                 formControlName="username"  autofocus>

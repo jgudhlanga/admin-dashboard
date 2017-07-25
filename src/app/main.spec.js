@@ -1,20 +1,13 @@
-import {HelloComponent} from './hello';
+import {MainComponent} from './main';
 import {TestBed, async} from '@angular/core/testing';
 
-describe('hello component', () => {
+describe('main component', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        HelloComponent
+        MainComponent
       ]
     });
     TestBed.compileComponents();
   }));
-
-  it('should render hello world', () => {
-    const fixture = TestBed.createComponent(MainComponent);
-    fixture.detectChanges();
-    const hello = fixture.nativeElement;
-    expect(hello.querySelector('h1').textContent).toBe('Hello World!');
-  });
 });

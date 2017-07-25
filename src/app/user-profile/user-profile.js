@@ -18,7 +18,6 @@ export class UserProfileComponent implements OnInit {
     .subscribe(
       employee => {
         this.employee = employee;
-        console.log(this.employee);
       },
       error => {
         this.error = error;

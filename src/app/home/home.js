@@ -58,10 +58,6 @@ export class HomeComponent {
     this.selectedEmployee = emp;
   }
 
-  onFilterSelect(filter) {
-    console.log(this.employees + ' ' + filter);
-  }
-
   ngOnInit() {
     this.getUser();
     this.activatedRoute
